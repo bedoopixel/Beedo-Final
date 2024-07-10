@@ -53,7 +53,7 @@ class _HomePage2WidgetState extends State<HomePage2Widget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFFD50066),
+        backgroundColor:FlutterFlowTheme.of(context).accent1,
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -61,7 +61,7 @@ class _HomePage2WidgetState extends State<HomePage2Widget> {
               width: MediaQuery.sizeOf(context).width,
               height: MediaQuery.sizeOf(context).height * 1,
               decoration: BoxDecoration(
-                color: Color(0xFFD50066),
+                color:FlutterFlowTheme.of(context).accent1,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.max,

@@ -41,6 +41,8 @@ class ProductModel extends FlutterFlowModel<ProductWidget> {
 
   get unfocusNode => null;
 
+  get proCardModel => null;
+
   @override
   void initState(BuildContext context) {}
 

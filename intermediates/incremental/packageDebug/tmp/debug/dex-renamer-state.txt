@@ -1,0 +1,4 @@
+#Wed Jul 10 21:17:33 AST 2024
+base.0=C\:\\Users\\Omar\\Documents\\GitHub\\Beedo-Final\\untitled8\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

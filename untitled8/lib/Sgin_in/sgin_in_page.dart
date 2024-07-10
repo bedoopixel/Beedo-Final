@@ -1,13 +1,11 @@
 import '../LoginScreenWidget/LoginScreenWidget.dart';
 import '../LoginScreenWidget/Login_Done/Login_Done.dart';
+import '../text.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
 import 'sgin_in_page_model.dart';
 export 'sgin_in_page_model.dart';
 
@@ -81,7 +79,7 @@ class _SginInPageWidgetState extends State<SginInPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 58, 0, 0),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
@@ -89,22 +87,14 @@ class _SginInPageWidgetState extends State<SginInPageWidget> {
                           children: [
                             Text(
                               'مرحباً بك',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                fontFamily: 'Tajawal',
-                                color: Colors.white,
-                                fontSize: 25,
-                                letterSpacing: 0,
-                                fontWeight: FontWeight.w600,
-                              ),
+                              style: Appwidget.HeadText(),
                             ),
                           ],
                         ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
@@ -115,15 +105,7 @@ class _SginInPageWidgetState extends State<SginInPageWidget> {
                               EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
                               child: Text(
                                 '!إنشاء حساب للمـتابعة',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                  fontFamily: 'Tajawal',
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  letterSpacing: 0,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                                style: Appwidget.Head2Text(),
                               ),
                             ),
                           ],
@@ -158,28 +140,6 @@ class _SginInPageWidgetState extends State<SginInPageWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 30, 0, 0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.facebook_sharp,
-                                          color: Colors.black,
-                                          size: 30,
-                                        ),
-                                        FaIcon(
-                                          FontAwesomeIcons.gofore,
-                                          color: Colors.black,
-                                          size: 30,
-                                        ),
-                                        Icon(
-                                          Icons.apple,
-                                          color: Colors.black,
-                                          size: 30,
-                                        ),
-                                      ].divide(SizedBox(width: 50)),
-                                    ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -193,19 +153,7 @@ class _SginInPageWidgetState extends State<SginInPageWidget> {
                                             padding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0, 9, 0, 0),
-                                            child: Text(
-                                              'او بواسطة',
-                                              style: FlutterFlowTheme.of(
-                                                  context)
-                                                  .bodyMedium
-                                                  .override(
-                                                fontFamily: 'Tajawal',
-                                                color: Color(0xFFD50066),
-                                                fontSize: 18,
-                                                letterSpacing: 0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
+
                                           ),
                                         ],
                                       ),
@@ -218,14 +166,7 @@ class _SginInPageWidgetState extends State<SginInPageWidget> {
                                           0, 10, 30, 10),
                                       child: Text(
                                         'الاسم بالكامل',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                          fontFamily: 'Tajawal',
-                                          fontSize: 18,
-                                          letterSpacing: 0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: Appwidget.LgihtbText(),
                                       ),
                                     ),
                                   ),
@@ -329,14 +270,7 @@ class _SginInPageWidgetState extends State<SginInPageWidget> {
                                           0, 20, 30, 10),
                                       child: Text(
                                         'البريد الإلكتروني',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                          fontFamily: 'Tajawal',
-                                          fontSize: 18,
-                                          letterSpacing: 0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: Appwidget.LgihtbText(),
                                       ),
                                     ),
                                   ),
@@ -442,14 +376,7 @@ class _SginInPageWidgetState extends State<SginInPageWidget> {
                                           0, 20, 30, 10),
                                       child: Text(
                                         'رقم الهاتف',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                          fontFamily: 'Tajawal',
-                                          fontSize: 18,
-                                          letterSpacing: 0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: Appwidget.LgihtbText(),
                                       ),
                                     ),
                                   ),
@@ -556,14 +483,7 @@ class _SginInPageWidgetState extends State<SginInPageWidget> {
                                           0, 20, 30, 10),
                                       child: Text(
                                         'كلمة المرور',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                          fontFamily: 'Tajawal',
-                                          fontSize: 18,
-                                          letterSpacing: 0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: Appwidget.LgihtbText(),
                                       ),
                                     ),
                                   ),

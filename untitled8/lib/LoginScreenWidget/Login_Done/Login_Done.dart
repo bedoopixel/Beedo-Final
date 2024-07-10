@@ -1,11 +1,9 @@
+import 'package:untitled2/text.dart';
 import '../../Home_Screens/home_page_main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
 import 'login_done_model.dart';
 export 'login_done_model.dart';
 
@@ -51,13 +49,13 @@ class _LoginDoneWidgetState extends State<LoginDoneWidget> {
             width: MediaQuery.sizeOf(context).width,
             height: MediaQuery.sizeOf(context).height * 1,
             decoration: BoxDecoration(
-              color: Color(0xFFD50066),
+              color:FlutterFlowTheme.of(context).accent1,
             ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -67,16 +65,8 @@ class _LoginDoneWidgetState extends State<LoginDoneWidget> {
                           alignment: AlignmentDirectional(0, 0),
                           child: Text(
                             '!مرحباً بعودتك من جــديــد',
-                            textAlign: TextAlign.end,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                              fontFamily: 'Tajawal',
-                              color: Colors.white,
-                              fontSize: 25,
-                              letterSpacing: 0,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            textAlign: TextAlign.center,
+                            style:Appwidget.bodyMedium(),
                           ),
                         ),
                       ],
@@ -94,16 +84,8 @@ class _LoginDoneWidgetState extends State<LoginDoneWidget> {
                           alignment: AlignmentDirectional(0, 0),
                           child: Text(
                             'نتمنى لك تجربة تسوق ممتعة.',
-                            textAlign: TextAlign.end,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                              fontFamily: 'Tajawal',
-                              color: Colors.white,
-                              fontSize: 20,
-                              letterSpacing: 0,
-                              fontWeight: FontWeight.w300,
-                            ),
+                            textAlign: TextAlign.center,
+                            style:Appwidget.bodySmall(),
                           ),
                         ),
                       ],
@@ -114,12 +96,10 @@ class _LoginDoneWidgetState extends State<LoginDoneWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width,
-                    height: MediaQuery.sizeOf(context).height * 0.81,
+                    height: MediaQuery.sizeOf(context).height * 0.84,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0),
-                        bottomRight: Radius.circular(0),
                         topLeft: Radius.circular(50),
                         topRight: Radius.circular(50),
                       ),
@@ -134,14 +114,12 @@ class _LoginDoneWidgetState extends State<LoginDoneWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 100, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
                                 child: Container(
                                   width: 300,
                                   height: 300,
                                   decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
+                                    color: FlutterFlowTheme.of(context).secondaryBackground,
                                   ),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8),
@@ -161,26 +139,11 @@ class _LoginDoneWidgetState extends State<LoginDoneWidget> {
                                   children: [
                                     Text(
                                       'عمرو الصبري',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                        fontFamily: 'Tajawal',
-                                        color: Color(0xFFD50066),
-                                        fontSize: 25,
-                                        letterSpacing: 0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                      style:Appwidget.LgihtpText(),
                                     ),
                                     Text(
                                       'مرحبا بك',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                        fontFamily: 'Tajawal',
-                                        fontSize: 25,
-                                        letterSpacing: 0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                      style:Appwidget.LgihtbText(),
                                     ),
                                   ].divide(SizedBox(width: 5)),
                                 ),
@@ -196,13 +159,7 @@ class _LoginDoneWidgetState extends State<LoginDoneWidget> {
                                       child: Text(
                                         ' يسعدنا انضمامك الينا مجددا نتمتى لك \nتجربة تسوق ممتعة',
                                         textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                          fontFamily: 'Tajawal',
-                                          fontSize: 20,
-                                          letterSpacing: 0,
-                                        ),
+                                        style:Appwidget.primaryText()
                                       ),
                                     ),
                                   ],
@@ -226,14 +183,7 @@ class _LoginDoneWidgetState extends State<LoginDoneWidget> {
                               iconPadding:
                               EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: Color(0xFFD50066),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                                fontSize: 25,
-                                letterSpacing: 0,
-                              ),
+                              textStyle:Appwidget.bodyMedium(),
                               elevation: 3,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
