@@ -1,12 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
+
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
-import 'branches_model.dart';
-export 'branches_model.dart';
-
 class BranchesWidget extends StatefulWidget {
   const BranchesWidget({super.key});
 
@@ -15,25 +9,25 @@ class BranchesWidget extends StatefulWidget {
 }
 
 class _BranchesWidgetState extends State<BranchesWidget> {
-  late BranchesModel _model;
+
 
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
-    _model.onUpdate();
+
   }
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BranchesModel());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.maybeDispose();
+
 
     super.dispose();
   }

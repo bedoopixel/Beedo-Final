@@ -10,17 +10,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
 import 'Change_Password/change_password_widget.dart';
 import 'Custmor_Server/server_custmor_widget.dart';
 import 'Personal_Noti/notifications_widget.dart';
 import 'Personal_Ordar/my_orders_widget.dart';
 import 'Privacy/pravicy_page_widget.dart';
 import 'Who_Are_We/who_are_widget.dart';
-import 'personal_screen_model.dart';
-export 'personal_screen_model.dart';
 
 class PersonalScreenWidget extends StatefulWidget {
   const PersonalScreenWidget({
@@ -38,19 +33,17 @@ class PersonalScreenWidget extends StatefulWidget {
 }
 
 class _PersonalScreenWidgetState extends State<PersonalScreenWidget> {
-  late PersonalScreenModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PersonalScreenModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
-        _model.create = false;
       });
     });
 
@@ -59,7 +52,6 @@ class _PersonalScreenWidgetState extends State<PersonalScreenWidget> {
 
   @override
   void dispose() {
-    _model.dispose();
 
     super.dispose();
   }
@@ -165,7 +157,7 @@ class _PersonalScreenWidgetState extends State<PersonalScreenWidget> {
                                         onPressed: () async {
                                           Navigator.push(
                                             context,
-                                            MaterialPageRoute(builder: (context) => const HomePageMainWidget ()),
+                                            MaterialPageRoute(builder: (context) =>  HomePageMainWidget ()),
                                           );
                                         },
                                       ),

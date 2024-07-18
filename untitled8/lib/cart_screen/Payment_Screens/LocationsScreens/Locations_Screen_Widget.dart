@@ -6,11 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-import 'locations_screen_model.dart';
-export 'locations_screen_model.dart';
 
 class LocationsScreenWidget extends StatefulWidget {
   const LocationsScreenWidget({super.key});
@@ -20,21 +16,21 @@ class LocationsScreenWidget extends StatefulWidget {
 }
 
 class _LocationsScreenWidgetState extends State<LocationsScreenWidget> {
-  late LocationsScreenModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => LocationsScreenModel());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }
@@ -42,9 +38,7 @@ class _LocationsScreenWidgetState extends State<LocationsScreenWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(

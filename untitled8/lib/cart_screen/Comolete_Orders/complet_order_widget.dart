@@ -1,4 +1,3 @@
-
 import '../../Personal_Screens/perdonsl_edit/Personal_Location/Edir_Location/edit_location_widget.dart';
 import '../Done_Orders/done_orders_widget.dart';
 import '../Order_last/order_last_widget.dart';
@@ -7,11 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-import 'complet_order_model.dart';
-export 'complet_order_model.dart';
 
 class CompletOrderWidget extends StatefulWidget {
   const CompletOrderWidget({super.key});
@@ -21,21 +16,21 @@ class CompletOrderWidget extends StatefulWidget {
 }
 
 class _CompletOrderWidgetState extends State<CompletOrderWidget> {
-  late CompletOrderModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CompletOrderModel());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }
@@ -43,9 +38,9 @@ class _CompletOrderWidgetState extends State<CompletOrderWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+
+
+
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(

@@ -89,6 +89,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      sha256: e17f6b3097b8c51b72c74c9f071a605c47bcc8893839bd66732457a5ebe73714
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.5.0+1"
+  dio_web_adapter:
+    dependency: transitive
+    description:
+      name: dio_web_adapter
+      sha256: "36c5b2d79eb17cdae41e974b7a8284fec631651d2a6f39a8a2ff22327e90aeac"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   dropdown_button2:
     dependency: "direct main"
     description:
@@ -121,6 +137,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
+  flash:
+    dependency: "direct main"
+    description:
+      name: flash
+      sha256: "1f1632d83f42fe0b9038f72694969a6adf52fa2a3df46d05cfc392dde3c1505f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.5+2"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -150,6 +174,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  flutter_polyline_points:
+    dependency: "direct main"
+    description:
+      name: flutter_polyline_points
+      sha256: "0e07862139cb65a88789cd6efbe284c0b6f1fcb5ed5ec87781759c48190d84b9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   flutter_rating_bar:
     dependency: "direct main"
     description:
@@ -184,6 +216,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  get:
+    dependency: "direct main"
+    description:
+      name: get
+      sha256: e4e7335ede17452b391ed3b2ede016545706c01a02292a6c97619705e7d2a85e
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.6.6"
+  get_storage:
+    dependency: "direct main"
+    description:
+      name: get_storage
+      sha256: "39db1fffe779d0c22b3a744376e86febe4ade43bf65e06eab5af707dc84185a2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.1"
   go_router:
     dependency: "direct main"
     description:
@@ -623,4 +671,4 @@ packages:
     version: "1.0.4"
 sdks:
   dart: ">=3.1.2 <4.0.0"
-  flutter: ">=3.10.0"
+  flutter: ">=3.13.0"

@@ -1,14 +1,13 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:untitled2/flutter_flow/flutter_flow.dart';
+
 
 class Appwidget{
   static TextStyle HeadText(){
     return const TextStyle(
 
-        fontFamily: 'Tarawa',
+        fontFamily: 'Tajawal',
         color: Colors.white,
         fontSize: 25,
         letterSpacing: 0,
@@ -19,11 +18,11 @@ class Appwidget{
   static TextStyle Head2Text(){
     return const TextStyle(
 
-        fontFamily: 'Tarawa',
+        fontFamily: 'Tajawal',
         color: Colors.white,
         fontSize: 20,
         letterSpacing: 0,
-        fontWeight: FontWeight.normal
+        fontWeight: FontWeight.bold
 
     );
   }

@@ -10,8 +10,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'Favor_Screen_Model.dart';
-export 'Favor_Screen_Model.dart';
 
 class FavorScreenWidget extends StatefulWidget {
   const FavorScreenWidget({
@@ -33,21 +31,21 @@ class FavorScreenWidget extends StatefulWidget {
 }
 
 class _FavorScreenWidgetState extends State<FavorScreenWidget> {
-  late FavorScreenModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FavorScreenModel());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }
@@ -64,9 +62,7 @@ class _FavorScreenWidgetState extends State<FavorScreenWidget> {
     }
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+
       child: Scaffold(
         key: scaffoldKey,
         body: Container(
@@ -127,7 +123,7 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePageMainWidget
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 27, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 26, 0, 0),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width,
                   height: MediaQuery.sizeOf(context).height * 0.84,

@@ -6,11 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-import 'personal_edit_model.dart';
-export 'personal_edit_model.dart';
 
 class PersonalEditWidget extends StatefulWidget {
   const PersonalEditWidget({super.key});
@@ -20,40 +16,25 @@ class PersonalEditWidget extends StatefulWidget {
 }
 
 class _PersonalEditWidgetState extends State<PersonalEditWidget> {
-  late PersonalEditModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PersonalEditModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
-        _model.create = false;
       });
     });
-
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
-
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
-
-    _model.textController3 ??= TextEditingController();
-    _model.textFieldFocusNode3 ??= FocusNode();
-
-    _model.textController4 ??= TextEditingController();
-    _model.textFieldFocusNode4 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }
@@ -61,9 +42,6 @@ class _PersonalEditWidgetState extends State<PersonalEditWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -290,8 +268,6 @@ class _PersonalEditWidgetState extends State<PersonalEditWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         8, 0, 8, 0),
                                     child: TextFormField(
-                                      controller: _model.textController1,
-                                      focusNode: _model.textFieldFocusNode1,
                                       autofocus: true,
                                       textCapitalization:
                                       TextCapitalization.none,
@@ -326,12 +302,6 @@ class _PersonalEditWidgetState extends State<PersonalEditWidget> {
                                         fontFamily: 'Readex Pro',
                                         letterSpacing: 0,
                                       ),
-                                      validator: _model.textController1Validator
-                                          .asValidator(context),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.allow(
-                                            RegExp('[a-zA-Z0-9]'))
-                                      ],
                                     ),
                                   ),
                                 ),
@@ -378,8 +348,6 @@ class _PersonalEditWidgetState extends State<PersonalEditWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         8, 0, 8, 0),
                                     child: TextFormField(
-                                      controller: _model.textController2,
-                                      focusNode: _model.textFieldFocusNode2,
                                       autofocus: true,
                                       textCapitalization:
                                       TextCapitalization.none,
@@ -415,12 +383,6 @@ class _PersonalEditWidgetState extends State<PersonalEditWidget> {
                                         letterSpacing: 0,
                                       ),
                                       keyboardType: TextInputType.datetime,
-                                      validator: _model.textController2Validator
-                                          .asValidator(context),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.allow(
-                                            RegExp('[0-9]'))
-                                      ],
                                     ),
                                   ),
                                 ),
@@ -467,8 +429,6 @@ class _PersonalEditWidgetState extends State<PersonalEditWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         8, 0, 8, 0),
                                     child: TextFormField(
-                                      controller: _model.textController3,
-                                      focusNode: _model.textFieldFocusNode3,
                                       autofocus: true,
                                       textCapitalization:
                                       TextCapitalization.none,
@@ -504,12 +464,6 @@ class _PersonalEditWidgetState extends State<PersonalEditWidget> {
                                         letterSpacing: 0,
                                       ),
                                       keyboardType: TextInputType.number,
-                                      validator: _model.textController3Validator
-                                          .asValidator(context),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.allow(
-                                            RegExp('[0-9]'))
-                                      ],
                                     ),
                                   ),
                                 ),
@@ -556,8 +510,6 @@ class _PersonalEditWidgetState extends State<PersonalEditWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         8, 0, 8, 0),
                                     child: TextFormField(
-                                      controller: _model.textController4,
-                                      focusNode: _model.textFieldFocusNode4,
                                       autofocus: true,
                                       textCapitalization:
                                       TextCapitalization.none,
@@ -592,12 +544,6 @@ class _PersonalEditWidgetState extends State<PersonalEditWidget> {
                                         fontFamily: 'Readex Pro',
                                         letterSpacing: 0,
                                       ),
-                                      validator: _model.textController4Validator
-                                          .asValidator(context),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.allow(
-                                            RegExp('[a-zA-Z0-9]'))
-                                      ],
                                     ),
                                   ),
                                 ),

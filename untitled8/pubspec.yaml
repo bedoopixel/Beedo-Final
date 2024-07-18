@@ -57,6 +57,13 @@ dependencies:
   sqflite: 2.2.6
   timeago: 3.2.2
   google_fonts: 6.0.0
+  get: ^4.6.6
+  get_storage: ^2.1.1
+  flash: ^3.0.1
+  dio: ^5.5.0+1
+  flutter_polyline_points: ^2.0.0
+
+
 
 
 
@@ -105,7 +112,7 @@ flutter:
   fonts:
     - family: Tajawal
       fonts:
-        - asset: fonts/Tajawal-Regular.ttf
+         - asset: fonts/Tajawal-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

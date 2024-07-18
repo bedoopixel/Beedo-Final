@@ -10,8 +10,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'product_screen_model.dart';
-export 'product_screen_model.dart';
 
 class ProductScreenWidget extends StatefulWidget {
   const ProductScreenWidget({super.key});
@@ -21,22 +19,17 @@ class ProductScreenWidget extends StatefulWidget {
 }
 
 class _ProductScreenWidgetState extends State<ProductScreenWidget> {
-  late ProductScreenModel _model;
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ProductScreenModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
-
     super.dispose();
   }
 
@@ -159,8 +152,6 @@ class _ProductScreenWidgetState extends State<ProductScreenWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 10, 0, 40),
                                   child: PageView(
-                                    controller: _model.pageViewController ??=
-                                        PageController(initialPage: 0),
                                     scrollDirection: Axis.horizontal,
                                     children: [
                                       ClipRRect(
@@ -198,33 +189,6 @@ class _ProductScreenWidgetState extends State<ProductScreenWidget> {
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16, 0, 0, 16),
-                                    child: smooth_page_indicator
-                                        .SmoothPageIndicator(
-                                      controller: _model.pageViewController ??=
-                                          PageController(initialPage: 0),
-                                      count: 3,
-                                      axisDirection: Axis.horizontal,
-                                      onDotClicked: (i) async {
-                                        await _model.pageViewController!
-                                            .animateToPage(
-                                          i,
-                                          duration: Duration(milliseconds: 500),
-                                          curve: Curves.ease,
-                                        );
-                                      },
-                                      effect: smooth_page_indicator
-                                          .ExpandingDotsEffect(
-                                        expansionFactor: 3,
-                                        spacing: 8,
-                                        radius: 20,
-                                        dotWidth: 10,
-                                        dotHeight: 10,
-                                        dotColor: FlutterFlowTheme.of(context)
-                                            .accent1,
-                                        activeDotColor: Color(0xFFD60055),
-                                        paintStyle: PaintingStyle.fill,
-                                      ),
-                                    ),
                                   ),
                                 ),
                               ],

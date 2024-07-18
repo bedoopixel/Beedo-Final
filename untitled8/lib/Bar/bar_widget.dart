@@ -7,9 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
-import 'bar_model.dart';
-export 'bar_model.dart';
-
 class BarWidget extends StatefulWidget {
   const BarWidget({super.key});
 
@@ -18,25 +15,25 @@ class BarWidget extends StatefulWidget {
 }
 
 class _BarWidgetState extends State<BarWidget> {
-  late BarModel _model;
+
 
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
-    _model.onUpdate();
+
   }
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BarModel());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.maybeDispose();
+
 
     super.dispose();
   }
@@ -46,7 +43,7 @@ class _BarWidgetState extends State<BarWidget> {
     return Align(
       alignment: AlignmentDirectional(0, 0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
         child: Container(
           width: MediaQuery.sizeOf(context).width * 0.7,
           height: MediaQuery.sizeOf(context).height * 0.08,

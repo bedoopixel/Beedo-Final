@@ -1,708 +1,389 @@
-import '../LoginScreenWidget/LoginScreenWidget.dart';
-import '../LoginScreenWidget/Login_Done/Login_Done.dart';
+import 'package:get/get.dart';
+import '../controllers/signup_controller.dart';
+import '../data/api/api_client.dart';
+import '../data/repository/signup_repo.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
+import '../models/user_model.dart';
 import '../text.dart';
+import '../utils/app_constants.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'sgin_in_page_model.dart';
-export 'sgin_in_page_model.dart';
 
-class SginInPageWidget extends StatefulWidget {
-  const SginInPageWidget({super.key});
 
-  @override
-  State<SginInPageWidget> createState() => _SginInPageWidgetState();
-}
+class SignUpPageWidget extends StatelessWidget {
+  final SignupController signupController = Get.put(SignupController(
+    signupRepo: SignupRepo(
+      apiClient: ApiClient(appBaseUrl: AppConstants.BASE_URL),
+    ),
+  ));
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordConfirmationController = TextEditingController();
 
-class _SginInPageWidgetState extends State<SginInPageWidget> {
-  late SginInPageModel _model;
-
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    super.initState();
-    _model = createModel(context, () => SginInPageModel());
-
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
-
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
-
-    _model.textController3 ??= TextEditingController();
-    _model.textFieldFocusNode3 ??= FocusNode();
-
-    _model.textController4 ??= TextEditingController();
-    _model.textFieldFocusNode4 ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
-  }
-
-  @override
-  void dispose() {
-    _model.dispose();
-
-    super.dispose();
-  }
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
-      child: WillPopScope(
-        onWillPop: () async => false,
-        child: Scaffold(
-          key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-          body: Wrap(
+    return Scaffold(
+      body: SingleChildScrollView(
+ scrollDirection: Axis.vertical,
+        child: Container(
+          height: MediaQuery.sizeOf(context).height*1,
+          width: MediaQuery.sizeOf(context).width*1,
+          color: FlutterFlowTheme.of(context).accent1,
+          child: Wrap(
             spacing: 0,
             runSpacing: 0,
             alignment: WrapAlignment.start,
-            crossAxisAlignment: WrapCrossAlignment.start,
+            crossAxisAlignment: WrapCrossAlignment.end,
             direction: Axis.horizontal,
             runAlignment: WrapAlignment.start,
             verticalDirection: VerticalDirection.down,
             clipBehavior: Clip.none,
             children: [
-              Container(
-                width: MediaQuery.sizeOf(context).width,
-                height: MediaQuery.sizeOf(context).height * 1,
-                decoration: BoxDecoration(
-                  color: Color(0xFFD50066),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 58, 0, 0),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'مرحباً بك',
-                              style: Appwidget.HeadText(),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
-                              child: Text(
-                                '!إنشاء حساب للمـتابعة',
-                                style: Appwidget.Head2Text(),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                      child: Container(
-                        width: double.infinity,
-                        height: MediaQuery.sizeOf(context).height * 0.84,
-                        decoration: BoxDecoration(
-                          color:
-                          FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(0),
-                            bottomRight: Radius.circular(0),
-                            topLeft: Radius.circular(50),
-                            topRight: Radius.circular(50),
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding:
-                              EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 30, 0, 0),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 15, 0, 0),
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0, 9, 0, 0),
+              Padding(padding: EdgeInsets.only(top: 70,bottom: 20)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Text(" مرحباً بك",
+                  style: Appwidget.HeadText(),)],
+              ),
+              SizedBox(height: 25,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Text("  !إنشاء حساب للمـتابعة",
+                  style: Appwidget.Head2Text(),)],
+              ),
 
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(1, 0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 10, 30, 10),
-                                      child: Text(
-                                        'الاسم بالكامل',
-                                        style: Appwidget.LgihtbText(),
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(1, 0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 10, 0, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        children: [
-                                          Align(
-                                            alignment:
-                                            AlignmentDirectional(0, 0),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                  .width *
-                                                  0.9,
-                                              height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                                  0.06,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryBackground,
-                                                borderRadius:
-                                                BorderRadius.circular(12),
-                                              ),
-                                              alignment:
-                                              AlignmentDirectional(0, 0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(8, 0, 8, 0),
-                                                child: TextFormField(
-                                                  controller:
-                                                  _model.textController1,
-                                                  focusNode: _model
-                                                      .textFieldFocusNode1,
-                                                  autofocus: false,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    labelStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelMedium
-                                                        .override(
-                                                      fontFamily:
-                                                      'Readex Pro',
-                                                      letterSpacing: 0,
-                                                    ),
-                                                    hintStyle: FlutterFlowTheme
-                                                        .of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                      fontFamily:
-                                                      'Readex Pro',
-                                                      letterSpacing: 0,
-                                                      fontWeight:
-                                                      FontWeight.w300,
-                                                    ),
-                                                    enabledBorder:
-                                                    InputBorder.none,
-                                                    focusedBorder:
-                                                    InputBorder.none,
-                                                    errorBorder:
-                                                    InputBorder.none,
-                                                    focusedErrorBorder:
-                                                    InputBorder.none,
-                                                    suffixIcon: Icon(
-                                                      Icons.person_outline,
-                                                      color: Color(0xFFD50066),
-                                                      size: 30,
-                                                    ),
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodyMedium
-                                                      .override(
-                                                    fontFamily:
-                                                    'Readex Pro',
-                                                    fontSize: 18,
-                                                    letterSpacing: 0,
-                                                  ),
-                                                  validator: _model
-                                                      .textController1Validator
-                                                      .asValidator(context),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(1, 0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 20, 30, 10),
-                                      child: Text(
-                                        'البريد الإلكتروني',
-                                        style: Appwidget.LgihtbText(),
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(1, 0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 10, 0, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        children: [
-                                          Align(
-                                            alignment:
-                                            AlignmentDirectional(0, 0),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                  .width *
-                                                  0.9,
-                                              height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                                  0.06,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryBackground,
-                                                borderRadius:
-                                                BorderRadius.circular(12),
-                                              ),
-                                              alignment:
-                                              AlignmentDirectional(0, 0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(8, 0, 8, 0),
-                                                child: TextFormField(
-                                                  controller:
-                                                  _model.textController2,
-                                                  focusNode: _model
-                                                      .textFieldFocusNode2,
-                                                  autofocus: false,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    labelStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelMedium
-                                                        .override(
-                                                      fontFamily:
-                                                      'Readex Pro',
-                                                      letterSpacing: 0,
-                                                    ),
-                                                    hintStyle: FlutterFlowTheme
-                                                        .of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                      fontFamily:
-                                                      'Readex Pro',
-                                                      letterSpacing: 0,
-                                                      fontWeight:
-                                                      FontWeight.w300,
-                                                    ),
-                                                    enabledBorder:
-                                                    InputBorder.none,
-                                                    focusedBorder:
-                                                    InputBorder.none,
-                                                    errorBorder:
-                                                    InputBorder.none,
-                                                    focusedErrorBorder:
-                                                    InputBorder.none,
-                                                    suffixIcon: Icon(
-                                                      Icons.email_outlined,
-                                                      color: Color(0xFFD50066),
-                                                      size: 30,
-                                                    ),
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodyMedium
-                                                      .override(
-                                                    fontFamily:
-                                                    'Readex Pro',
-                                                    fontSize: 18,
-                                                    letterSpacing: 0,
-                                                  ),
-                                                  keyboardType: TextInputType
-                                                      .emailAddress,
-                                                  validator: _model
-                                                      .textController2Validator
-                                                      .asValidator(context),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(1, 0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 20, 30, 10),
-                                      child: Text(
-                                        'رقم الهاتف',
-                                        style: Appwidget.LgihtbText(),
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(1, 0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 10, 0, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        children: [
-                                          Align(
-                                            alignment:
-                                            AlignmentDirectional(0, 0),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                  .width *
-                                                  0.9,
-                                              height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                                  0.06,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryBackground,
-                                                borderRadius:
-                                                BorderRadius.circular(12),
-                                              ),
-                                              alignment:
-                                              AlignmentDirectional(0, 0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(8, 0, 8, 0),
-                                                child: TextFormField(
-                                                  controller:
-                                                  _model.textController3,
-                                                  focusNode: _model
-                                                      .textFieldFocusNode3,
-                                                  autofocus: false,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    labelStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelMedium
-                                                        .override(
-                                                      fontFamily:
-                                                      'Readex Pro',
-                                                      letterSpacing: 0,
-                                                    ),
-                                                    hintStyle: FlutterFlowTheme
-                                                        .of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                      fontFamily:
-                                                      'Readex Pro',
-                                                      letterSpacing: 0,
-                                                      fontWeight:
-                                                      FontWeight.w300,
-                                                    ),
-                                                    enabledBorder:
-                                                    InputBorder.none,
-                                                    focusedBorder:
-                                                    InputBorder.none,
-                                                    errorBorder:
-                                                    InputBorder.none,
-                                                    focusedErrorBorder:
-                                                    InputBorder.none,
-                                                    suffixIcon: Icon(
-                                                      Icons
-                                                          .phone_enabled_outlined,
-                                                      color: Color(0xFFD50066),
-                                                      size: 30,
-                                                    ),
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodyMedium
-                                                      .override(
-                                                    fontFamily:
-                                                    'Readex Pro',
-                                                    fontSize: 18,
-                                                    letterSpacing: 0,
-                                                  ),
-                                                  keyboardType:
-                                                  TextInputType.phone,
-                                                  validator: _model
-                                                      .textController3Validator
-                                                      .asValidator(context),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(1, 0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 20, 30, 10),
-                                      child: Text(
-                                        'كلمة المرور',
-                                        style: Appwidget.LgihtbText(),
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(1, 0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 10, 0, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        children: [
-                                          Align(
-                                            alignment:
-                                            AlignmentDirectional(0, 0),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                  .width *
-                                                  0.9,
-                                              height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                                  0.06,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryBackground,
-                                                borderRadius:
-                                                BorderRadius.circular(12),
-                                              ),
-                                              alignment:
-                                              AlignmentDirectional(0, 0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(8, 0, 8, 0),
-                                                child: TextFormField(
-                                                  controller:
-                                                  _model.textController4,
-                                                  focusNode: _model
-                                                      .textFieldFocusNode4,
-                                                  autofocus: false,
-                                                  obscureText: !_model
-                                                      .passwordVisibility,
-                                                  decoration: InputDecoration(
-                                                    labelStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelMedium
-                                                        .override(
-                                                      fontFamily:
-                                                      'Readex Pro',
-                                                      letterSpacing: 0,
-                                                    ),
-                                                    hintStyle: FlutterFlowTheme
-                                                        .of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                      fontFamily:
-                                                      'Readex Pro',
-                                                      letterSpacing: 0,
-                                                      fontWeight:
-                                                      FontWeight.w300,
-                                                    ),
-                                                    enabledBorder:
-                                                    InputBorder.none,
-                                                    focusedBorder:
-                                                    InputBorder.none,
-                                                    errorBorder:
-                                                    InputBorder.none,
-                                                    focusedErrorBorder:
-                                                    InputBorder.none,
-                                                    suffixIcon: InkWell(
-                                                      onTap: () => setState(
-                                                            () => _model
-                                                            .passwordVisibility =
-                                                        !_model
-                                                            .passwordVisibility,
-                                                      ),
-                                                      focusNode: FocusNode(
-                                                          skipTraversal: true),
-                                                      child: Icon(
-                                                        _model.passwordVisibility
-                                                            ? Icons
-                                                            .visibility_outlined
-                                                            : Icons
-                                                            .visibility_off_outlined,
-                                                        color:
-                                                        Color(0xFFD50066),
-                                                        size: 30,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodyMedium
-                                                      .override(
-                                                    fontFamily:
-                                                    'Readex Pro',
-                                                    fontSize: 18,
-                                                    letterSpacing: 0,
-                                                  ),
-                                                  keyboardType:
-                                                  TextInputType.phone,
-                                                  validator: _model
-                                                      .textController4Validator
-                                                      .asValidator(context),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  FFButtonWidget(
-                                    onPressed: (){
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => const LoginDoneWidget()),
-                                      );
-                                    },
-                                    text: 'اشتراك',
-                                    options: FFButtonOptions(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.9,
-                                      height:
-                                      MediaQuery.sizeOf(context).height *
-                                          0.07,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 24, 0),
-                                      iconPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 0),
-                                      color: Color(0xFFD50066),
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                        fontFamily: 'Tajawal',
-                                        color: Colors.white,
-                                        fontSize: 25,
-                                        letterSpacing: 0,
-                                      ),
-                                      elevation: 3,
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 15, 0, 0),
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                        children: [
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(builder: (context) => const LoginScreenWidget()),
-                                              );
-                                            },
-                                            child: Text(
-                                              'تسجيل الدخول',
-                                              style: FlutterFlowTheme.of(
-                                                  context)
-                                                  .bodyMedium
-                                                  .override(
-                                                fontFamily: 'Tajawal',
-                                                color: Color(0xFFD50066),
-                                                fontSize: 18,
-                                                letterSpacing: 0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                            ),
-                                          ),
-                                          Text(
-                                            'هل لديك حساب؟ ',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                              fontFamily: 'Tajawal',
-                                              fontSize: 18,
-                                              letterSpacing: 0,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+              Padding(
+                padding: const EdgeInsets.only(top: 40),
+                child: Container(
+                  height: MediaQuery.sizeOf(context).height*0.86,
+                  width: MediaQuery.sizeOf(context).width*1,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(50),
+                      topLeft: Radius.circular(50),
                     ),
-                  ],
+                  ),
+                  child: GetBuilder<SignupController>(
+                      builder: (signupController) {
+                        if (signupController.isLoading) {
+                          return const Center(child: CircularProgressIndicator());
+                        }
+                        child: return Form(
+                          key: _formKey,
+                          child: Column(
+                            children: [
+                              SizedBox(height: 40,),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 25,top: 5,bottom: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [Text(" اسم المستخدم ",
+                                    style: Appwidget.primaryText(),)],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.9,
+                                  decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                      borderRadius: BorderRadius.circular(15),
+                                      border: Border.all(color: FlutterFlowTheme.of(context).accent1)
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(8, 18, 0, 8),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width * 0.8,
+                                      height: MediaQuery.sizeOf(context).height * 0.05,
+                                      child: TextFormField(
+                                        controller: usernameController,
+                                        autofocus: false,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 18,
+                                            letterSpacing: 0,
+                                          ),
+                                          hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 18,
+                                            letterSpacing: 0,
+                                          ),
+                                          enabledBorder: InputBorder.none,
+                                          focusedBorder: InputBorder.none,
+                                          errorBorder: InputBorder.none,
+                                          focusedErrorBorder: InputBorder.none,
+                                          suffixIcon: Icon(
+                                            Icons.person_outline_outlined,
+                                            color: Color(0xFFD50066),
+                                            size: 30,
+                                          ),
+                                        ),
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Username is required';
+                                          }
+                                          return null;
+                                        },
+                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 18,
+                                          letterSpacing: 0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 25,top: 19,bottom: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [Text("البريد الإلكتروني ",
+                                    style: Appwidget.primaryText(),)],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.9,
+                                  decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                      borderRadius: BorderRadius.circular(15),
+                                      border: Border.all(color: FlutterFlowTheme.of(context).accent1)
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(8, 18, 0, 8),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width * 0.8,
+                                      height: MediaQuery.sizeOf(context).height * 0.05,
+                                      child: TextFormField(
+                                        controller: emailController,
+                                        autofocus: false,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 18,
+                                            letterSpacing: 0,
+                                          ),
+                                          hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 18,
+                                            letterSpacing: 0,
+                                          ),
+                                          enabledBorder: InputBorder.none,
+                                          focusedBorder: InputBorder.none,
+                                          errorBorder: InputBorder.none,
+                                          focusedErrorBorder: InputBorder.none,
+                                          suffixIcon: Icon(
+                                            Icons.email_outlined,
+                                            color: Color(0xFFD50066),
+                                            size: 30,
+                                          ),
+                                        ),
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Email is required';
+                                          }
+                                          if (!GetUtils.isEmail(value)) {
+                                            return 'Enter a valid email address';
+                                          }
+                                          return null;
+                                        },
+                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 18,
+                                          letterSpacing: 0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 25,top: 20,bottom: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [Text("كلمة المرور",
+                                    style: Appwidget.primaryText(),)],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.9,
+                                  decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                      borderRadius: BorderRadius.circular(15),
+                                      border: Border.all(color: FlutterFlowTheme.of(context).accent1)
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(8, 18, 0, 8),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width * 0.8,
+                                      height: MediaQuery.sizeOf(context).height * 0.05,
+                                      child: TextFormField(
+                                        controller: passwordController,
+                                        obscureText: true,
+                                        decoration: InputDecoration(
+                                          labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 18,
+                                            letterSpacing: 0,
+                                          ),
+                                          hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 18,
+                                            letterSpacing: 0,
+                                          ),
+                                          enabledBorder: InputBorder.none,
+                                          focusedBorder: InputBorder.none,
+                                          errorBorder: InputBorder.none,
+                                          focusedErrorBorder: InputBorder.none,
+                                          suffixIcon: Icon(
+                                            Icons.lock_outline,
+                                            color: Color(0xFFD50066),
+                                            size: 30,
+                                          ),
+                                        ),
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Password is required';
+                                          }
+                                          if (value.length < 6) {
+                                            return 'Password must be more than 6 characters';
+                                          }
+                                          return null;
+                                        },
+                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 18,
+                                          letterSpacing: 0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 25,top: 20,bottom: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [Text("تاكيد كلمة المرور",
+                                    style: Appwidget.primaryText(),)],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.9,
+                                  decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                      borderRadius: BorderRadius.circular(15),
+                                      border: Border.all(color: FlutterFlowTheme.of(context).accent1)
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(8, 18, 0, 8),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width * 0.8,
+                                      height: MediaQuery.sizeOf(context).height * 0.05,
+                                      child: TextFormField(
+                                        controller: passwordConfirmationController,
+                                        obscureText: true,
+                                        decoration: InputDecoration(
+                                          labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 18,
+                                            letterSpacing: 0,
+                                          ),
+                                          hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 18,
+                                            letterSpacing: 0,
+                                          ),
+                                          enabledBorder: InputBorder.none,
+                                          focusedBorder: InputBorder.none,
+                                          errorBorder: InputBorder.none,
+                                          focusedErrorBorder: InputBorder.none,
+                                          suffixIcon: Icon(
+                                            Icons.lock_outline,
+                                            color: Color(0xFFD50066),
+                                            size: 30,
+                                          ),
+                                        ),
+
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Password confirmation is required';
+                                          }
+                                          if (value != passwordController.text) {
+                                            return 'Passwords do not match';
+                                          }
+                                          return null;
+                                        },
+                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 18,
+                                          letterSpacing: 0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                              ),
+                              // Generated code for this Row Widget...
+
+// Generated code for this Button Widget...
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
+                                child: FFButtonWidget(
+                                  onPressed: () async { if (_formKey.currentState?.validate() ?? false) {
+                                    User user = User(
+                                      username: usernameController.text,
+                                      email: emailController.text,
+                                      password: passwordController.text,
+                                      passwordConfirmation: passwordConfirmationController.text,
+                                    );
+                                    signupController.signup(user);
+                                  }
+                                  },
+                                  text: ' اشترك',
+                                  options: FFButtonOptions(
+                                    width: MediaQuery.sizeOf(context).width * 0.9,
+                                    height: MediaQuery.sizeOf(context).height * 0.07,
+                                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                    color: Color(0xFFD60055),
+                                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                      fontFamily: 'Tajawal',
+                                      color: Colors.white,
+                                      fontSize: 25,
+                                      letterSpacing: 0,
+                                    ),
+                                    elevation: 3,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                              ),
+
+                            ],
+                          ),
+                        );
+                      }),
                 ),
               ),
             ],
@@ -712,3 +393,4 @@ class _SginInPageWidgetState extends State<SginInPageWidget> {
     );
   }
 }
+

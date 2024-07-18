@@ -1,5 +1,3 @@
-
-
 import '../Comolete_Orders/complet_order_widget.dart';
 import '../Payment_Screens/LocationsScreens/Locations_Screen_Widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -8,11 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-import 'done_orders_model.dart';
-export 'done_orders_model.dart';
 
 class DoneOrdersWidget extends StatefulWidget {
   const DoneOrdersWidget({super.key});
@@ -22,21 +16,21 @@ class DoneOrdersWidget extends StatefulWidget {
 }
 
 class _DoneOrdersWidgetState extends State<DoneOrdersWidget> {
-  late DoneOrdersModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DoneOrdersModel());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }
@@ -44,9 +38,6 @@ class _DoneOrdersWidgetState extends State<DoneOrdersWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -133,42 +124,9 @@ class _DoneOrdersWidgetState extends State<DoneOrdersWidget> {
                                 mainAxisAlignment:
                                 MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Theme(
-                                    data: ThemeData(
-                                      checkboxTheme: CheckboxThemeData(
-                                        visualDensity: VisualDensity.compact,
-                                        materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                          BorderRadius.circular(20),
-                                        ),
-                                      ),
-                                      unselectedWidgetColor:
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                    ),
-                                    child: Checkbox(
-                                      value: _model.checkboxValue ??= true,
-                                      onChanged: (newValue) async {
-                                        setState(() =>
-                                        _model.checkboxValue = newValue!);
-                                      },
-                                      side: BorderSide(
-                                        width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
-                                      activeColor: Color(0xFFD50066),
-                                      checkColor:
-                                      FlutterFlowTheme.of(context).info,
-                                    ),
-                                  ),
                                   Text(
                                     'Master Card',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
+                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20,
                                       letterSpacing: 0,

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:untitled2/pages/login_page.dart';
 import 'Home_Screens/HomePage2.dart';
+import 'controllers/login_controller.dart';
+import 'package:get/get.dart';
 
 
 
@@ -13,7 +17,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    Get.lazyPut(()=> LoginPage());
+    return GetMaterialApp(
 
       theme: ThemeData(
         // This is the theme of your application.

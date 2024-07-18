@@ -4,8 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'vrify_model.dart';
-export 'vrify_model.dart';
+
 
 class VrifyWidget extends StatefulWidget {
   const VrifyWidget({super.key});
@@ -15,24 +14,21 @@ class VrifyWidget extends StatefulWidget {
 }
 
 class _VrifyWidgetState extends State<VrifyWidget> {
-  late VrifyModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => VrifyModel());
 
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }
@@ -40,9 +36,6 @@ class _VrifyWidgetState extends State<VrifyWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -154,8 +147,6 @@ class _VrifyWidgetState extends State<VrifyWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           8, 0, 8, 0),
                                       child: TextFormField(
-                                        controller: _model.textController,
-                                        focusNode: _model.textFieldFocusNode,
                                         autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -170,9 +161,6 @@ class _VrifyWidgetState extends State<VrifyWidget> {
                                           ),
                                         ),
                                         style:Appwidget.LgihtbText(),
-                                        validator: _model
-                                            .textControllerValidator
-                                            .asValidator(context),
                                       ),
                                     ),
                                   ),

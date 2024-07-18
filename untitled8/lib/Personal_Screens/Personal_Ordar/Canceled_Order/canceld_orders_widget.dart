@@ -1,4 +1,3 @@
-
 import '../../../cart_screen/Cart_Screen.dart';
 import '../../Personal_Screen.dart';
 import '../Shipping/shipping_widget.dart';
@@ -10,11 +9,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
-import 'canceld_orders_model.dart';
-export 'canceld_orders_model.dart';
 
 class CanceldOrdersWidget extends StatefulWidget {
   const CanceldOrdersWidget({super.key});
@@ -24,21 +18,21 @@ class CanceldOrdersWidget extends StatefulWidget {
 }
 
 class _CanceldOrdersWidgetState extends State<CanceldOrdersWidget> {
-  late CanceldOrdersModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CanceldOrdersModel());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }

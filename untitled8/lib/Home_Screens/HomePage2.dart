@@ -1,13 +1,16 @@
+import 'package:untitled2/Home_Screens/home_page_main.dart';
+
 import '../LoginScreenWidget/LoginScreenWidget.dart';
+import '../pages/category_page.dart';
+import '../pages/login_page.dart';
+import '../pages/product_page.dart';
+import '../pages/signup_page.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-import 'HomePage2Model.dart';
-export 'HomePage2Model.dart';
+
 
 class HomePage2Widget extends StatefulWidget {
   const HomePage2Widget({super.key});
@@ -17,22 +20,20 @@ class HomePage2Widget extends StatefulWidget {
 }
 
 class _HomePage2WidgetState extends State<HomePage2Widget> {
-  late HomePage2Model _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomePage2Model());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
-
     super.dispose();
   }
 
@@ -48,9 +49,6 @@ class _HomePage2WidgetState extends State<HomePage2Widget> {
     }
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor:FlutterFlowTheme.of(context).accent1,
@@ -69,10 +67,10 @@ class _HomePage2WidgetState extends State<HomePage2Widget> {
                   Align(
                     alignment: AlignmentDirectional(0, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 35, 0, 0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.5,
-                        height: MediaQuery.sizeOf(context).width * 0.5,
+                        height: MediaQuery.sizeOf(context).height * 0.3,
                         decoration: BoxDecoration(
                           color:
                           FlutterFlowTheme.of(context).secondaryBackground,
@@ -83,18 +81,18 @@ class _HomePage2WidgetState extends State<HomePage2Widget> {
                           child: Image.asset(
                             'assets/images/hh.png',
                             width: 200,
-                            height: 200,
-                            fit: BoxFit.cover,
+                            height: MediaQuery.sizeOf(context).height * 0.2,
+                            fit: BoxFit.contain,
                           ),
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 41, 0, 0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width,
-                      height: MediaQuery.sizeOf(context).height * 0.63,
+                      height: MediaQuery.sizeOf(context).height * 0.61,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         borderRadius: BorderRadius.only(
@@ -172,7 +170,7 @@ class _HomePage2WidgetState extends State<HomePage2Widget> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => const LoginScreenWidget()),
+                                  MaterialPageRoute(builder: (context) =>  LoginScreenWidget()),
                                 );
                               },
                               text: 'التالي',

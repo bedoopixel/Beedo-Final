@@ -4,8 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'login_done_model.dart';
-export 'login_done_model.dart';
+
 
 class LoginDoneWidget extends StatefulWidget {
   const LoginDoneWidget({super.key});
@@ -15,21 +14,21 @@ class LoginDoneWidget extends StatefulWidget {
 }
 
 class _LoginDoneWidgetState extends State<LoginDoneWidget> {
-  late LoginDoneModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => LoginDoneModel());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }
@@ -37,9 +36,7 @@ class _LoginDoneWidgetState extends State<LoginDoneWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -125,9 +122,9 @@ class _LoginDoneWidgetState extends State<LoginDoneWidget> {
                                     borderRadius: BorderRadius.circular(8),
                                     child: Image.asset(
                                       'assets/images/Illustrations.png',
-                                      width: 300,
-                                      height: 200,
-                                      fit: BoxFit.cover,
+                                      width: MediaQuery.sizeOf(context).width*0.4,
+                                      height: MediaQuery.sizeOf(context).height*0.4,
+                                      fit: BoxFit.contain,
                                     ),
                                   ),
                                 ),
@@ -171,7 +168,7 @@ class _LoginDoneWidgetState extends State<LoginDoneWidget> {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const HomePageMainWidget()),
+                                MaterialPageRoute(builder: (context) =>  HomePageMainWidget()),
                               );
                             },
                             text: 'التالي',

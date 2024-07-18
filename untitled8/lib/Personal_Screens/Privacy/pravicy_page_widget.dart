@@ -3,17 +3,11 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-import 'pravicy_page_model.dart';
-export 'pravicy_page_model.dart';
 
 class PravicyPageWidget extends StatefulWidget {
   const PravicyPageWidget({super.key});
@@ -24,7 +18,6 @@ class PravicyPageWidget extends StatefulWidget {
 
 class _PravicyPageWidgetState extends State<PravicyPageWidget>
     with TickerProviderStateMixin {
-  late PravicyPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -46,14 +39,12 @@ class _PravicyPageWidgetState extends State<PravicyPageWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PravicyPageModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
 
     super.dispose();
   }

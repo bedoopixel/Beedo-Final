@@ -2,11 +2,7 @@ import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-import 'cart_card_model.dart';
-export 'cart_card_model.dart';
 
 class CartCardWidget extends StatefulWidget {
   const CartCardWidget({super.key});
@@ -16,25 +12,25 @@ class CartCardWidget extends StatefulWidget {
 }
 
 class _CartCardWidgetState extends State<CartCardWidget> {
-  late CartCardModel _model;
+
 
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
-    _model.onUpdate();
+
   }
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CartCardModel());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.maybeDispose();
+
 
     super.dispose();
   }
@@ -137,13 +133,11 @@ class _CartCardWidgetState extends State<CartCardWidget> {
                                         letterSpacing: 0,
                                       ),
                                     ),
-                                    count: _model.countControllerValue ??= 0,
-                                    updateCount: (count) => setState(() =>
-                                    _model.countControllerValue = count),
+
                                     stepSize: 1,
                                     contentPadding:
                                     EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 20, 0),
+                                        20, 0, 20, 0), count: 1, updateCount: (int ) {  },
                                   ),
                                 ),
                               ),

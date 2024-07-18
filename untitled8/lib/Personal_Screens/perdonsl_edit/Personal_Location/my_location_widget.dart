@@ -5,13 +5,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
 import 'Add_Location/add_location_widget.dart';
 import 'Edir_Location/edit_location_widget.dart';
-import 'my_location_model.dart';
-export 'my_location_model.dart';
 
 class MyLocationWidget extends StatefulWidget {
   const MyLocationWidget({super.key});
@@ -21,21 +16,21 @@ class MyLocationWidget extends StatefulWidget {
 }
 
 class _MyLocationWidgetState extends State<MyLocationWidget> {
-  late MyLocationModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MyLocationModel());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }

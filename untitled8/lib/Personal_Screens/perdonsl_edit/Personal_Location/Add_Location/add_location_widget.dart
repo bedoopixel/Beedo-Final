@@ -6,11 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-import 'add_location_model.dart';
-export 'add_location_model.dart';
 
 class AddLocationWidget extends StatefulWidget {
   const AddLocationWidget({super.key});
@@ -20,30 +16,20 @@ class AddLocationWidget extends StatefulWidget {
 }
 
 class _AddLocationWidgetState extends State<AddLocationWidget> {
-  late AddLocationModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AddLocationModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
-
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
-
-    _model.textController3 ??= TextEditingController();
-    _model.textFieldFocusNode3 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
 
     super.dispose();
   }
@@ -197,8 +183,6 @@ class _AddLocationWidgetState extends State<AddLocationWidget> {
                                        padding: EdgeInsetsDirectional.fromSTEB(
                                            8, 8, 8, 0),
                                        child: TextFormField(
-                                         controller: _model.textController1,
-                                         focusNode: _model.textFieldFocusNode1,
                                          autofocus: false,
                                          obscureText: false,
                                          decoration: InputDecoration(
@@ -221,9 +205,7 @@ class _AddLocationWidgetState extends State<AddLocationWidget> {
                                          ),
                                          style: FlutterFlowTheme.of(context)
                                              .bodyMedium,
-                                         validator: _model
-                                             .textController1Validator
-                                             .asValidator(context),
+
                                        ),
                                      ),
                                    ),
@@ -263,8 +245,6 @@ class _AddLocationWidgetState extends State<AddLocationWidget> {
                                        padding: EdgeInsetsDirectional.fromSTEB(
                                            8, 8, 8, 0),
                                        child: TextFormField(
-                                         controller: _model.textController2,
-                                         focusNode: _model.textFieldFocusNode2,
                                          autofocus: false,
                                          obscureText: false,
                                          decoration: InputDecoration(
@@ -285,11 +265,7 @@ class _AddLocationWidgetState extends State<AddLocationWidget> {
                                              size: 30,
                                            ),
                                          ),
-                                         style: FlutterFlowTheme.of(context)
-                                             .bodyMedium,
-                                         validator: _model
-                                             .textController2Validator
-                                             .asValidator(context),
+                                         style: FlutterFlowTheme.of(context).bodyMedium,
                                        ),
                                      ),
                                    ),
@@ -329,8 +305,6 @@ class _AddLocationWidgetState extends State<AddLocationWidget> {
                                        padding: EdgeInsetsDirectional.fromSTEB(
                                            8, 8, 8, 0),
                                        child: TextFormField(
-                                         controller: _model.textController3,
-                                         focusNode: _model.textFieldFocusNode3,
                                          autofocus: false,
                                          obscureText: false,
                                          decoration: InputDecoration(
@@ -353,9 +327,6 @@ class _AddLocationWidgetState extends State<AddLocationWidget> {
                                          ),
                                          style: FlutterFlowTheme.of(context)
                                              .bodyMedium,
-                                         validator: _model
-                                             .textController3Validator
-                                             .asValidator(context),
                                        ),
                                      ),
                                    ),

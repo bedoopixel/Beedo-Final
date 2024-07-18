@@ -7,9 +7,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'Cart_acreen_model.dart';
 import 'Payment_Screens/PaymentWidget.dart';
-export 'Cart_acreen_model.dart';
+
 
 class CartScreenWidget extends StatefulWidget {
   const CartScreenWidget({
@@ -27,19 +26,19 @@ class CartScreenWidget extends StatefulWidget {
 }
 
 class _CartScreenWidgetState extends State<CartScreenWidget> {
-  late CartScreenModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CartScreenModel());
+
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
-        _model.create = false;
+
       });
     });
 
@@ -48,7 +47,7 @@ class _CartScreenWidgetState extends State<CartScreenWidget> {
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }
@@ -56,9 +55,7 @@ class _CartScreenWidgetState extends State<CartScreenWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -132,7 +129,7 @@ class _CartScreenWidgetState extends State<CartScreenWidget> {
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const HomePageMainWidget()),
+                                    MaterialPageRoute(builder: (context) =>  HomePageMainWidget()),
                                   );
                                 },
                               ),
@@ -141,7 +138,7 @@ class _CartScreenWidgetState extends State<CartScreenWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 27, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 26, 0, 0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width,
                           height: MediaQuery.sizeOf(context).height * 0.84,

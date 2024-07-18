@@ -4,11 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-import 'order_last_model.dart';
-export 'order_last_model.dart';
 
 class OrderLastWidget extends StatefulWidget {
   const OrderLastWidget({super.key});
@@ -18,21 +14,21 @@ class OrderLastWidget extends StatefulWidget {
 }
 
 class _OrderLastWidgetState extends State<OrderLastWidget> {
-  late OrderLastModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => OrderLastModel());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }
@@ -40,9 +36,7 @@ class _OrderLastWidgetState extends State<OrderLastWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -217,7 +211,7 @@ class _OrderLastWidgetState extends State<OrderLastWidget> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => const HomePageMainWidget()),
+                                  MaterialPageRoute(builder: (context) =>  HomePageMainWidget()),
                                 );
                               },
                               text: 'الرئيسية',

@@ -6,8 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 
-import 'code_model.dart';
-export 'code_model.dart';
 
 class CodeWidget extends StatefulWidget {
   const CodeWidget({super.key});
@@ -17,21 +15,21 @@ class CodeWidget extends StatefulWidget {
 }
 
 class _CodeWidgetState extends State<CodeWidget> {
-  late CodeModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CodeModel());
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }
@@ -39,9 +37,6 @@ class _CodeWidgetState extends State<CodeWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(

@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'new_pass_model.dart';
-export 'new_pass_model.dart';
 
 class NewPassWidget extends StatefulWidget {
   const NewPassWidget({super.key});
@@ -15,27 +13,23 @@ class NewPassWidget extends StatefulWidget {
 }
 
 class _NewPassWidgetState extends State<NewPassWidget> {
-  late NewPassModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => NewPassModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }
@@ -43,9 +37,7 @@ class _NewPassWidgetState extends State<NewPassWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -157,37 +149,23 @@ class _NewPassWidgetState extends State<NewPassWidget> {
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                                       child: TextFormField(
-                                        controller: _model.textController1,
-                                        focusNode: _model.textFieldFocusNode1,
                                         autofocus: false,
-                                        obscureText:
-                                        !_model.passwordVisibility1,
                                         decoration: InputDecoration(
                                           enabledBorder: InputBorder.none,
                                           focusedBorder: InputBorder.none,
                                           errorBorder: InputBorder.none,
                                           focusedErrorBorder: InputBorder.none,
                                           suffixIcon: InkWell(
-                                            onTap: () => setState(
-                                                  () => _model.passwordVisibility1 =
-                                              !_model.passwordVisibility1,
-                                            ),
                                             focusNode:
                                             FocusNode(skipTraversal: true),
                                             child: Icon(
-                                              _model.passwordVisibility1
-                                                  ? Icons.visibility_outlined
-                                                  : Icons
-                                                  .visibility_off_outlined,
+                                              Icons.visibility_off_outlined,
                                               color: Color(0xFFD50066),
                                               size: 30,
                                             ),
                                           ),
                                         ),
                                         style:Appwidget.LgihtbText(),
-                                        validator: _model
-                                            .textController1Validator
-                                            .asValidator(context),
                                       ),
                                     ),
                                   ),
@@ -222,37 +200,23 @@ class _NewPassWidgetState extends State<NewPassWidget> {
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                                       child: TextFormField(
-                                        controller: _model.textController2,
-                                        focusNode: _model.textFieldFocusNode2,
-                                        autofocus: false,
-                                        obscureText:
-                                        !_model.passwordVisibility2,
                                         decoration: InputDecoration(
                                           enabledBorder: InputBorder.none,
                                           focusedBorder: InputBorder.none,
                                           errorBorder: InputBorder.none,
                                           focusedErrorBorder: InputBorder.none,
                                           suffixIcon: InkWell(
-                                            onTap: () => setState(
-                                                  () => _model.passwordVisibility2 =
-                                              !_model.passwordVisibility2,
-                                            ),
                                             focusNode:
                                             FocusNode(skipTraversal: true),
                                             child: Icon(
-                                              _model.passwordVisibility2
-                                                  ? Icons.visibility_outlined
-                                                  : Icons
-                                                  .visibility_off_outlined,
+                                              Icons.visibility_off_outlined,
                                               color: Color(0xFFD50066),
                                               size: 30,
                                             ),
                                           ),
                                         ),
                                         style:Appwidget.LgihtbText(),
-                                        validator: _model
-                                            .textController2Validator
-                                            .asValidator(context),
+
                                       ),
                                     ),
                                   ),

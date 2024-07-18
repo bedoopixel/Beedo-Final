@@ -1,5 +1,4 @@
 import 'package:untitled2/text.dart';
-
 import '../Home_Screens/home_page_main.dart';
 import '../Product_Card/pro_card_widget.dart';
 import '../cart_screen/Cart_Screen.dart';
@@ -8,8 +7,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'product_model.dart';
-export 'product_model.dart';
 
 class ProductWidget extends StatefulWidget {
   const ProductWidget({super.key});
@@ -19,24 +16,18 @@ class ProductWidget extends StatefulWidget {
 }
 
 class _ProductWidgetState extends State<ProductWidget> {
-  late ProductModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ProductModel());
-
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
-
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+
 
     super.dispose();
   }
@@ -44,9 +35,6 @@ class _ProductWidgetState extends State<ProductWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -115,7 +103,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                           onPressed: (){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const HomePageMainWidget()),
+                              MaterialPageRoute(builder: (context) =>  HomePageMainWidget()),
                             );
                           },
                         ),
@@ -159,8 +147,6 @@ class _ProductWidgetState extends State<ProductWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           8, 0, 8, 0),
                                       child: TextFormField(
-                                        controller: _model.textController,
-                                        focusNode: _model.textFieldFocusNode,
                                         autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -180,9 +166,6 @@ class _ProductWidgetState extends State<ProductWidget> {
                                         ),
                                         style:Appwidget.LgihtbText(),
                                         textAlign: TextAlign.end,
-                                        validator: _model
-                                            .textControllerValidator
-                                            .asValidator(context),
                                       ),
                                     ),
                                   ),

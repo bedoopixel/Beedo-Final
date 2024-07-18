@@ -1,26 +1,20 @@
-import 'package:go_router/go_router.dart';
+import 'package:get/get.dart';
 import 'package:untitled2/Personal_Screens/Personal_Screen.dart';
-import 'package:untitled2/Product/product_widget.dart';
+import 'package:untitled2/Product_Card/Pro_H_Card.dart';
 import 'package:untitled2/text.dart';
 import '../Bar/bar_widget.dart';
-import '../Branches_lable/branches_widget.dart';
+import '../SubCategoryPage/SubCategoryPage.dart';
+import '../controllers/categories_controller.dart';
+import '../data/api/api_client.dart';
+import '../data/repository/categories_repo.dart';
+import '../utils/app_constants.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePageMainWidget extends StatefulWidget {
-  const HomePageMainWidget({
-    super.key,
-    int? selectedPageIndex,
-    bool? hidden,
-  })  : this.selectedPageIndex = selectedPageIndex ?? 1,
-        this.hidden = hidden ?? false;
 
-  final int selectedPageIndex;
-  final bool hidden;
 
   @override
   State<HomePageMainWidget> createState() => _HomePageMainWidgetState();
@@ -28,33 +22,22 @@ class HomePageMainWidget extends StatefulWidget {
 
 class _HomePageMainWidgetState extends State<HomePageMainWidget> {
 
+  final CategoryController categoryController = Get.put(CategoryController(
+    categoryRepo: CategoryRepo(
+      apiClient: ApiClient(appBaseUrl: AppConstants.BASE_URL),
+    ),
+  ));
 
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    super.initState();
-
-
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
-  }
-
-  @override
-  void dispose() {
-
-
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
+    categoryController.fetchCategories();
     return GestureDetector(
 
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
-          key: scaffoldKey,
+
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           body: Align(
             alignment: AlignmentDirectional(0, 0),
@@ -135,7 +118,7 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalScreenWidg
                             height: MediaQuery.sizeOf(context).height * 0.83,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                                  .primaryBackground,
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(0),
                                 bottomRight: Radius.circular(0),
@@ -151,15 +134,10 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalScreenWidg
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 30, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                                       child: Container(
-                                        width:
-                                        MediaQuery.sizeOf(context).width *
-                                            0.9,
-                                        height:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.07,
+                                        width: MediaQuery.sizeOf(context).width * 0.9,
+                                        height: MediaQuery.sizeOf(context).height * 0.07,
                                         decoration: BoxDecoration(),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -170,7 +148,6 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalScreenWidg
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(8, 0, 8, 0),
                                                 child: TextFormField(
-
                                                   autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -211,6 +188,7 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalScreenWidg
                                       ),
                                     ),
                                     Container(
+                                
                                       decoration: BoxDecoration(),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -219,195 +197,63 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalScreenWidg
                                             padding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0, 20, 0, 0),
-                                            child: SingleChildScrollView(
-                                              scrollDirection: Axis.horizontal,
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                MainAxisAlignment
-                                                    .spaceEvenly,
-                                                children: [
-                                                  FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
-                                                    },
-                                                    text: 'اطفال',
-                                                    options: FFButtonOptions(
-                                                      width: 85,
-                                                      height: 35,
-                                                      padding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                          24, 0, 24, 0),
-                                                      iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                          0, 0, 0, 0),
-                                                      color: FlutterFlowTheme
-                                                          .of(context)
-                                                          .secondaryBackground,
-                                                      textStyle:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .titleSmall
-                                                          .override(
-                                                        fontFamily:
-                                                        'Tajawal',
-                                                        color: FlutterFlowTheme.of(
-                                                            context)
-                                                            .primaryText,
-                                                        fontSize: 10,
-                                                        letterSpacing:
-                                                        0,
-                                                      ),
-                                                      elevation: 3,
-                                                      borderSide: BorderSide(
-                                                        color: FlutterFlowTheme.of(context).accent1,
-                                                        width: 1.5,
-                                                      ),
-                                                      borderRadius:
-                                                      BorderRadius.circular(
-                                                          20),
+                                              child: GetBuilder<CategoryController>(
+                                                builder: (categoryController) {
+                                                  if (categoryController.isLoading) {
+                                                    return Center(child: CircularProgressIndicator());
+                                                  }
+                                                  return SingleChildScrollView(
+                                                    scrollDirection: Axis.horizontal,
+                                                    child: Row(
+                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      children: categoryController.categories.map((category) {
+                                                        return GestureDetector(
+                                                          onTap: () {
+                                                            // Replace 'SubCategoryPage' with your actual page that views the subcategories
+                                                            // and pass the selected category to it.
+                                                            Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                builder: (context) => SubCategoryPage(category: category),
+                                                              ),
+                                                            );
+                                                          },
+                                                          child: Padding(
+                                                            padding: const EdgeInsets.only(left: 10),
+                                                            child: Container(
+                                                              width: 85,
+                                                              height: 35,
+                                                              child: Center(
+                                                                child: Text(
+                                                                  category.name,
+                                                                  style: Appwidget.primaryText(),
+                                                                ),
+                                                              ),
+                                                              decoration: BoxDecoration(
+                                                                color: Colors.white,
+                                                                borderRadius: BorderRadius.circular(20.0),
+                                                                border: Border.all(
+                                                                  color: FlutterFlowTheme.of(context).accent1,
+                                                                ),
+                                                                boxShadow: [
+                                                                  BoxShadow(
+                                                                    color: Colors.black12,
+                                                                    blurRadius: 4.0,
+                                                                    offset: Offset(0, 2),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }).toList(),
                                                     ),
-                                                  ),
-                                                  FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
-                                                    },
-                                                    text: 'النساء',
-                                                    options: FFButtonOptions(
-                                                      width: 85,
-                                                      height: 35,
-                                                      padding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                          24, 0, 24, 0),
-                                                      iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                          0, 0, 0, 0),
-                                                      color: FlutterFlowTheme
-                                                          .of(context)
-                                                          .secondaryBackground,
-                                                      textStyle:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .titleSmall
-                                                          .override(
-                                                        fontFamily:
-                                                        'Tajawal',
-                                                        color: FlutterFlowTheme.of(
-                                                            context)
-                                                            .primaryText,
-                                                        fontSize: 10,
-                                                        letterSpacing:
-                                                        0,
-                                                      ),
-                                                      elevation: 3,
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                        Color(0xFFD50066),
-                                                        width: 1.5,
-                                                      ),
-                                                      borderRadius:
-                                                      BorderRadius.circular(
-                                                          20),
-                                                    ),
-                                                  ),
-                                                  FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
-                                                    },
-                                                    text: 'الرجال',
-                                                    options: FFButtonOptions(
-                                                      width: 85,
-                                                      height: 35,
-                                                      padding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                          24, 0, 24, 0),
-                                                      iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                          0, 0, 0, 0),
-                                                      color: FlutterFlowTheme
-                                                          .of(context)
-                                                          .secondaryBackground,
-                                                      textStyle:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .titleSmall
-                                                          .override(
-                                                        fontFamily:
-                                                        'Tajawal',
-                                                        color: FlutterFlowTheme.of(
-                                                            context)
-                                                            .primaryText,
-                                                        fontSize: 10,
-                                                        letterSpacing:
-                                                        0,
-                                                      ),
-                                                      elevation: 3,
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                        Color(0xFFD50066),
-                                                        width: 1.5,
-                                                      ),
-                                                      borderRadius:
-                                                      BorderRadius.circular(
-                                                          20),
-                                                    ),
-                                                  ),
-                                                  FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
-                                                    },
-                                                    text: 'الكل',
-                                                    options: FFButtonOptions(
-                                                      width: 85,
-                                                      height: 35,
-                                                      padding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                          24, 0, 24, 0),
-                                                      iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                          0, 0, 0, 0),
-                                                      color: Color(0xFFD50066),
-                                                      textStyle:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .titleSmall
-                                                          .override(
-                                                        fontFamily:
-                                                        'Tajawal',
-                                                        color: Colors
-                                                            .white,
-                                                        fontSize: 10,
-                                                        letterSpacing:
-                                                        0,
-                                                      ),
-                                                      elevation: 3,
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                        Color(0xFFD50066),
-                                                        width: 1.5,
-                                                      ),
-                                                      borderRadius:
-                                                      BorderRadius.circular(
-                                                          20),
-                                                    ),
-                                                  ),
-                                                ]
-                                                    .divide(SizedBox(width: 5))
-                                                    .around(SizedBox(width: 5)),
+                                                  );
+                                                },
                                               ),
-                                            ),
+
+
                                           ),
                                           Padding(
                                             padding:
@@ -415,13 +261,9 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalScreenWidg
                                                 20, 20, 20, 0),
                                             child: Container(
                                               width: double.infinity,
-                                              height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                                  0.25,
+                                              height: MediaQuery.sizeOf(context).height * 0.25,
                                               decoration: BoxDecoration(
-                                                color:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                                color: FlutterFlowTheme.of(context).primaryBackground,
                                               ),
                                               child: Container(
                                                 width: double.infinity,
@@ -432,7 +274,7 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalScreenWidg
                                                       padding:
                                                       EdgeInsetsDirectional
                                                           .fromSTEB(
-                                                          0, 0, 0, 40),
+                                                          0, 0, 0, 0),
                                                       child: PageView(
                                                         scrollDirection:
                                                         Axis.horizontal,
@@ -444,8 +286,8 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalScreenWidg
                                                                 8),
                                                             child: Image.asset(
                                                               'assets/images/h.png',
-                                                              width: 300,
-                                                              height: 200,
+                                                              width: MediaQuery.sizeOf(context).width*0.5,
+                                                              height: MediaQuery.sizeOf(context).height*0.6,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -483,8 +325,8 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalScreenWidg
                                                       child: Padding(
                                                         padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(16, 0,
-                                                            0, 45),
+                                                            .fromSTEB(0, 0,
+                                                            0, 80),
 
                                                       ),
                                                     ),
@@ -493,55 +335,38 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalScreenWidg
                                               ),
                                             ),
                                           ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                            children: [
-                                              Align(
-                                                alignment:
-                                                AlignmentDirectional(1, 0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 10, 0),
-                                                  child: Text(
-                                                    'الفئات',
-                                                    style: Appwidget.LgihtbText(),
-                                                  ),
-                                                ),
-                                              ),
-                                            ]
-                                                .divide(SizedBox(width: 30))
-                                                .around(SizedBox(width: 30)),
-                                          ),
-                                          Padding(
-                                            padding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0, 10, 0, 0),
-                                            child: Container(
-                                              width: double.infinity,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                              ),
+
+                                          Container(
+                                            width: double.infinity,
+                                            height: MediaQuery.sizeOf(context).height*0.30,
+                                            decoration: BoxDecoration(
+                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                            ),
+                                            child: SingleChildScrollView(
                                               child: Column(
-                                                mainAxisSize: MainAxisSize.max,
+
+
                                                 children: [
+                                                  Padding(
+                                                    padding: const EdgeInsets.all(5.0),
+                                                    child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                      children: [
+                                                        Text("اخترنا لك",
+                                                        style: Appwidget.LgihtbText(),)
+                                                      ],
+                                                    ),
+                                                  ),
                                                   Row(
-                                                    mainAxisSize: MainAxisSize.max,
-                                                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
                                                     children: [
-                                                      InkWell(
-                                                        onTap: () async {
-                                                       Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductWidget()));
-                                                        },
-                                                        child: BranchesWidget(),
-                                                        ),
+                                                      ProHcard(),
+
                                                     ],
                                                   ),
+
                                                 ],
                                               ),
+
                                             ),
                                           ),
                                         ],
@@ -550,5 +375,6 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalScreenWidg
                                   ],
                                 ),
                                 // Generated code for this Row Widget...
-                                BarWidget(),],),),),],),),],),),),),),);}
+                                const BarWidget(),
+                              ],),),),],),),],),),),),),);}
 }
